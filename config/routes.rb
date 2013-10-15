@@ -1,5 +1,4 @@
 RailsQuiz::Application.routes.draw do
-  resources :drawings
   resources :participants
 
   root 'participants#index'

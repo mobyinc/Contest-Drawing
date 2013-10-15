@@ -19,7 +19,7 @@ class Setting < ActiveRecord::Base
 		key = key.to_s
 		val = Setting.find_by_key key
 		if val.nil?
-			Setting.create(key: key, value: value)
+			raise "Invalid setting key"
 		else
 			val.value = value
 			val.save

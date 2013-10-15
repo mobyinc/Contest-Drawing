@@ -1,16 +1,21 @@
 <h3>Drawings</h3>
-<a href="#" class="btn btn-large btn-primary">Draw</a>
+<%= link_to "Draw", drawings_path, method: :post, class: "btn btn-large btn-primary" %>
+<%= link_to "Draw Ajax", drawings_path, id: 'draw_button', class: "btn btn-large btn-primary" %>
 <table class="table table-striped">	 
 	 <thead>
 			<tr>
 				 <th>Winner</th>
+				 <th>Points</th>
+				 <th>Drawing Id</th>
 				 <th>Cycle</th>
 			</tr>
 	 </thead>
-	 <tbody>
+	 <tbody id="drawings">
 	 		<% @drawings.each do |d| %>
 			<tr>
 				 <th><%= link_to d.participant.name, d.participant %></th>
+				 <th><%= d.participant.points %></th>
+				 <th><%= d.id %></th>
 				 <td><%= d.cycle %></td>
 			</tr>
 			<% end %>

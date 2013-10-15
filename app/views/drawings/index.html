@@ -1,0 +1,17 @@
+<h3>Drawings</h3>
+<table class="table table-striped">	 
+	 <thead>
+			<tr>
+				 <th>Winner</th>
+				 <th>Cycle</th>
+			</tr>
+	 </thead>
+	 <tbody>
+	 		<% @drawings.each do |d| %>
+			<tr>
+				 <th><%= link_to d.participant.name, d.participant %></th>
+				 <td><%= d.cycle %></td>
+			</tr>
+			<% end %>
+	 </tbody>
+</table>

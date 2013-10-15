@@ -1,0 +1,17 @@
+<h3>Participants</h3>
+<table class="table table-striped">	 
+	 <thead>
+			<tr>
+				 <th>Name</th>
+				 <th>Points</th>
+			</tr>
+	 </thead>
+	 <tbody>
+	 		<% @participants.each do |p| %>
+			<tr>
+				 <th><%= link_to p.name, p %></th>
+				 <td><%= p.points %></td>
+			</tr>
+			<% end %>
+	 </tbody>
+</table>

@@ -20,6 +20,13 @@ private
 		@drawings = Drawing.all.order('cycle desc, id desc')
 	end
 
+	# Draws a winner from the pool of participants using a raffle-style algorithm where each point counts as a "ticket" in a drawing.
+	# A new drawing record is created and returned
+	# Repeat winners are not allowed until everyone has won at least once
+	#
+	# TIP: Use drawing cycles to keep track of the current "round" of drawing. 
+	# 		 To update the drawing cycle, use: Setting.set_value('drawing_cycle', new_value)
+	
 	def draw_winner
 		cycle = Setting.value('drawing_cycle').to_i
 

@@ -24,9 +24,9 @@ private
 	# A new drawing record is created and returned
 	# Repeat winners are not allowed until everyone has won at least once
 	#
-	# TIP: Use drawing cycles to keep track of the current "round" of drawing. 
+	# TIP: Use drawing cycles to keep track of the current "round" of drawing.
 	# 		 To update the drawing cycle, use: Setting.set_value('drawing_cycle', new_value)
-	
+
 	def draw_winner
 		cycle = Setting.value('drawing_cycle').to_i
 
@@ -39,7 +39,7 @@ private
 			point = 0
 			all_points = eligible_winners.sum(:points)
 			winning_point = rand(all_points)
-	
+
 			eligible_winners.each do |p|
 				point += p.points
 				if point >= winning_point
@@ -55,7 +55,7 @@ private
 			end
 
 			return nil
-		elsif Participant.count > 0                        
+		elsif Participant.count > 0
 			logger.warn "Ran out of winners in this cycle"
 			Setting.set_value('drawing_cycle', cycle + 1)
 
